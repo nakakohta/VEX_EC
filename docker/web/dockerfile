@@ -1,10 +1,26 @@
 FROM php:8.3-apache
 
 ENV TZ=Asia/Tokyo
-ENV APACHE_DOCUMENT_ROOT ../app/htdocs
+ENV APACHE_DOCUMENT_ROOT /var/www/html
 
-RUN mkdir /VEX_EC
-WORKDIR /VEX_EC
+RUN apt-get update && apt-get install -y \
+    git unzip zip libzip-dev libpng-dev libjpeg-dev libfreetype6-dev libicu-dev libonig-dev \
+  && docker-php-ext-configure gd --with-freetype --with-jpeg \
+  && docker-php-ext-install pdo_mysql mbstring bcmath gd zip intl \
+  && a2enmod rewrite
 
 COPY ./php.ini /usr/local/etc/php/conf.d/php.ini
+
+# Apache DocumentRoot を設定
+RUN sed -ri -e "s!DocumentRoot\s+/var/www/html!DocumentRoot ${APACHE_DOCUMENT_ROOT}!g" /etc/apache2/sites-available/*.conf \
+  && sed -ri -e "s!<Directory /var/www/html>!<Directory ${APACHE_DOCUMENT_ROOT}>!g" /etc/apache2/apache2.conf
+
+WORKDIR /var/www/html
+
+# composer をインストール
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# コンテナ内のタイムゾーン設定
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# 実行時にボリュームがマウントされるので権限調整はエントリポイントか起動時に行う

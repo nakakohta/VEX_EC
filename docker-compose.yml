@@ -1,12 +1,14 @@
-version: ' 3'
+version: '3.8'
 services:
   web:
     container_name: VEX_EC
-    #image: php:8.3-apache
-    build: ./docker/web/dockerfile
+    build:
+      context: ./docker/web
+      dockerfile: dockerfile
     environment:
       TZ: "Asia/Tokyo"
     ports:
       - "80:80"
     volumes:
       - ./app/htdocs:/var/www/html
+    working_dir: /var/www/html
