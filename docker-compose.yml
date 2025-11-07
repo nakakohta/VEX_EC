@@ -1,7 +1,7 @@
 version: ' 3'
 services:
     VEX_EC:
-        image: php8.4-apache
+        image: php8.3-apache
         ports:
             - "8080:80"
         volumes:
