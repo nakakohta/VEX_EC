@@ -1,0 +1,10 @@
+FROM php:8.3-apache
+
+ENV TZ=Asia/Tokyo
+ENV APACHE_DOCUMENT_ROOT ../app/htdocs
+
+RUN mkdir /VEX_EC
+WORKDIR /VEX_EC
+
+COPY ./php.ini /usr/local/etc/php/conf.d/php.ini
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
