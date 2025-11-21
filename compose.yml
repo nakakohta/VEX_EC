@@ -5,9 +5,9 @@ services:
     ports:
       - "8080:80"
     volumes:
-      # ⬇️ 【修正箇所】 プロジェクト全体を Web公開フォルダ に置く設定に戻しました
-      # これで top.php も app/htdocs の中身もすべて読み込めるようになります
-      - ./:/var/www/html
+      # ⬇️ 【修正箇所】 ここを書き換えてください！
+      # プロジェクト全体(./)ではなく、移動先の(./app/htdocs)を指定します
+      - ./app/htdocs:/var/www/html
     depends_on:
       - db
 
