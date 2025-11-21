@@ -47,7 +47,7 @@ $products = [
     <header>
         <div class="header-inner">
             <h1 class="logo">
-                <a href="index.php">
+                <a href="top.php">
                     <img src="images/logo/logo.png" width="160" height="80" alt="VEX">
                 </a>
             </h1>

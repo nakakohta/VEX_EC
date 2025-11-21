@@ -50,13 +50,13 @@ $order = $_SESSION['order'];
     <header>
         <div class="header-inner">
             <h1 class="logo">
-                <a href="../index.php">
+                <a href="../top.php">
                     <img src="../images/logo/logo.png" width="160" height="80" alt="VEX">
                 </a>
             </h1>
             <nav>
                 <ul>
-                    <li><a href="../index.php">トップページ</a></li>
+                    <li><a href="../top.php">トップページ</a></li>
                     <li><a href="">ログアウト</a></li>
                 </ul>
             </nav>

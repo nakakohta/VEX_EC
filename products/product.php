@@ -58,13 +58,13 @@ if (!$product) {
 	<header>
 		<div class="header-inner">
 			<h1 class="logo">
-				<a href="../index.php">
+				<a href="../top.php">
 					<img src="../images/logo/logo.png" width="140" height="70" alt="VEX">
 				</a>
 			</h1>
 			<nav>
 				<ul>
-					<li><a href="../index.php">トップ</a></li>
+					<li><a href="../top.php">トップ</a></li>
 					<li><a href="checkout.php">カートを見る</a></li>
 				</ul>
 			</nav>
@@ -72,7 +72,7 @@ if (!$product) {
 	</header>
 
 	<main>
-		<div class="breadcrumbs"><a href="../index.php">商品一覧</a> &gt; <?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?></div>
+		<div class="breadcrumbs"><a href="../top.php">商品一覧</a> &gt; <?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?></div>
 		<section class="product-detail">
 			<img src="<?php echo htmlspecialchars($product['image'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?>">
 			<div class="info">

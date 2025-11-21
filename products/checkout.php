@@ -140,13 +140,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <div class="header-inner">
             <h1 class="logo">
-                <a href="../index.php">
+                <a href="../top.php">
                     <img src="../images/logo/logo.png" width="160" height="80" alt="VEX">
                 </a>
             </h1>
             <nav>
                 <ul>
-                    <li><a href="../index.php">トップページ</a></li>
+                    <li><a href="../top.php">トップページ</a></li>
                     <li><a href="">ログアウト</a></li>
                 </ul>
             </nav>
@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (empty($cart_items)): ?>
             <section class="empty-cart">
                 <p>カートに商品がありません。</p>
-                <a href="../index.php">ショッピングを続ける</a>
+                <a href="../top.php">ショッピングを続ける</a>
             </section>
         <?php else: ?>
             <!-- カート商品リスト -->
@@ -192,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </tfoot>
                 </table>
                 <div class="actions">
-                    <a class="continue-shopping" href="../index.php">ショッピングを続ける</a>
+                    <a class="continue-shopping" href="../top.php">ショッピングを続ける</a>
                 </div>
             </section>
 
