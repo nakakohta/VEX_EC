@@ -53,6 +53,7 @@ $products = [
             </h1>
             <nav>
                 <ul>
+                    <li><a href="">ログイン</a></li>
                     <li><a href="">会員登録</a></li>
                     <li><a href="products/checkout.php">カートを見る</a></li>
                 </ul>
