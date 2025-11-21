@@ -1,0 +1,40 @@
+services:
+  # Webサーバー (Apache + PHP)
+  web:
+    build: ./docker/php
+    ports:
+      - "8080:80"
+    volumes:
+      # ⬇️ 【修正箇所】 プロジェクト全体を Web公開フォルダ に置く設定に戻しました
+      # これで top.php も app/htdocs の中身もすべて読み込めるようになります
+      - ./:/var/www/html
+    depends_on:
+      - db
+
+  # データベース (MySQL)
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vex_db
+      MYSQL_USER: vex_user
+      MYSQL_PASSWORD: vex_password
+      TZ: "Asia/Tokyo"
+    ports:
+      - "3306:3306"
+    volumes:
+      # DBデータを永続化
+      - mysql_data:/var/lib/mysql
+      # 初期化SQLを読み込む設定
+      - ./docker/db/init:/docker-entrypoint-initdb.d
+
+  # DB管理画面 (phpMyAdmin)
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8888:80"
+
+volumes:
+  mysql_data:
