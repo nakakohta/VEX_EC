@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <nav>
                 <ul>
                     <li><a href="../top.php">トップページ</a></li>
-                    <li><a href="">ログアウト</a></li>
+                    <li><a href="../top.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>

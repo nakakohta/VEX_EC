@@ -57,7 +57,7 @@ $order = $_SESSION['order'];
             <nav>
                 <ul>
                     <li><a href="../top.php">トップページ</a></li>
-                    <li><a href="">ログアウト</a></li>
+                    <li><a href="../top.php">ログアウト</a></li>
                 </ul>
             </nav>
         </div>
@@ -138,7 +138,7 @@ $order = $_SESSION['order'];
 
             <!-- アクションボタン -->
             <div class="action-buttons">
-                <a href="../index.php" class="btn-primary">トップページへ戻る</a>
+                <a href="../top.php" class="btn-primary">トップページへ戻る</a>
             </div>
         </section>
     </main>
